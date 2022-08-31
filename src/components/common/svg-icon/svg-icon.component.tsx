@@ -10,17 +10,17 @@ export namespace SvgIcon {
   }
 
   export type Props = Readonly<{
-    size?: Size;
-    viewBox?: string;
+    size?: Size
+    viewBox?: string
   }> &
-    SVGProps<SVGSVGElement>;
+    SVGProps<SVGSVGElement>
 
   const sizeMap = {
     [Size.Small]: styles.svgIcon_small,
-    [Size.Medium]: styles.svgIcon_medium,
+    [Size.Medium]: styles.svgIcon_medium
   };
 
-  export const $: FC<Props> = React.memo((props) => {
+  export const $: FC<Props> = (props) => {
     const { size = Size.Small, viewBox, ...rest } = props;
     const classes = classNames(styles.svgIcon, sizeMap[size]);
 
@@ -34,5 +34,5 @@ export namespace SvgIcon {
         {props.children}
       </svg>
     );
-  });
+  };
 }

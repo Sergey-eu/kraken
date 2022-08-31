@@ -1,6 +1,6 @@
-import { ChartDataItem, ThreadDataItem } from "../types";
+import { ChartDataItem, ThreadDataItem } from '../types';
 
-export const useChartDataFormat = (data: Array<ThreadDataItem>) => {
+export const useChartDataFormat = (data: ThreadDataItem[]) => {
   const chartData: ChartDataItem = {};
 
   data.forEach((thread) => {
@@ -8,7 +8,7 @@ export const useChartDataFormat = (data: Array<ThreadDataItem>) => {
     chartData[threadName] = thread.data;
   });
 
-  if (Object.keys(chartData).length) {
+  if (Object.keys(chartData).length > 0) {
     chartData.time = Date.now();
   }
 

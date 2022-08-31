@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { observer } from 'mobx-react-lite';
 
@@ -9,11 +9,10 @@ import { Pulse } from '../../components/common/pulse';
 
 import { useCssVariables } from '../../hooks/useCssVariables';
 import { useChartDataFormat } from '../../hooks/useChartDataFormat';
-import marketStore from '../../store/markets'
+import marketStore from '../../store/markets';
 import styles from './chart.module.scss';
 
 export const ChartPage: FC = observer(() => {
-
   const { closeSocket, prices } = marketStore;
   const { chartData } = useChartDataFormat(prices);
   const { cssVarValues } = useCssVariables(['--secondary-1', '--secondary-2', '--secondary-3']);
@@ -33,5 +32,5 @@ export const ChartPage: FC = observer(() => {
         <Chart.$ data={chartData} colors={cssVarValues} />
       </div>
     </Page.$>
-  )
-})
+  );
+});

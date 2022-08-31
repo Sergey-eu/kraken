@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
 
@@ -7,17 +7,16 @@ import { MultiSelect } from '../../components/tracker/multi-select';
 import { Heading } from '../../components/common/heading';
 
 import { tradingPairs } from '../../store/data/mock';
-import marketStore from '../../store/markets'
+import marketStore from '../../store/markets';
 import styles from './home.module.scss';
 
 export const HomePage: FC = observer(() => {
-
   const { setMarkets, markets } = marketStore;
 
-  const handleSelect = (markets: Array<string>) => {
+  const handleSelect = (markets: string[]) => {
     window.localStorage.setItem('chartData', '[]');
-    setMarkets(markets)
-  }
+    setMarkets(markets);
+  };
 
   return (
     <Page.$>
@@ -29,5 +28,5 @@ export const HomePage: FC = observer(() => {
         </div>
       </div>
     </Page.$>
-  )
-})
+  );
+});
