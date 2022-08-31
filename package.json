@@ -24,7 +24,9 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "css-types": "typed-scss-modules src --watch --nameFormat none --exportType default"
+    "css-types": "typed-scss-modules src --watch --nameFormat none --exportType default",
+    "code:lint": "eslint src --ext .js,.jsx,.ts,.tsx",
+    "code:lint-fix": "npm run code:lint -- --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -49,7 +51,18 @@
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.14",
     "@types/react-dom": "^18.0.5",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.36.1",
     "classnames": "^2.3.1",
-    "typescript": "^4.7.4"
+    "eslint": "^8.0.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^22.0.0",
+    "eslint-config-stylelint": "^15.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.31.1",
+    "prettier": "^2.7.1",
+    "typescript": "*"
   }
 }

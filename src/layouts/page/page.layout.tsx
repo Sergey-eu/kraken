@@ -4,7 +4,7 @@ import styles from './page.module.scss';
 
 export namespace Page {
   export type Props = Readonly<{
-    children: React.ReactNode;
+    children: React.ReactNode
   }>
 
   export const $: FC<Props> = (props) => {
@@ -14,7 +14,6 @@ export namespace Page {
       <main className={styles.page}>
         {children}
       </main>
-    )
-  }
+    );
+  };
 }
-

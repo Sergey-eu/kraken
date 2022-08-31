@@ -5,9 +5,9 @@ import styles from './checkbox.module.scss';
 
 export namespace Checkbox {
   export type Props = Readonly<{
-    label?: string;
+    label?: string
     checked: boolean
-    onChange: () => void;
+    onChange: () => void
   }>
 
   export const $: FC<Props> = (props) => {
@@ -21,7 +21,6 @@ export namespace Checkbox {
         </span>
         <span className={styles.checkbox__label}>{label}</span>
       </label>
-    )
-  }
+    );
+  };
 }
-

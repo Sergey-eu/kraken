@@ -1,14 +1,15 @@
+@use "sass:math";
 @import "../../../styles/variables";
 @import "../../../styles/mixins";
 
 $circleSize: 100px;
 $animationSpeed: 1s;
 
-.pulse {
+.puls_ds_ds_ds_ds_e {
   display: inline-flex;
   position: relative;
-  width: $circleSize/10;
-  height: $circleSize/10;
+  width: math.div($circleSize, 10);
+  height: math.div($circleSize, 10);
   border-radius: 50%;
   background-color: transparent;
   transition: $transition;
@@ -19,10 +20,10 @@ $animationSpeed: 1s;
     position: absolute;
     width: $circleSize;
     height: $circleSize;
-    left: -$circleSize/2;
-    top: -$circleSize/2;
-    border-radius: $circleSize/2;
-    margin: $circleSize/20 0 0 $circleSize/20;
+    left: math.div(-$circleSize, 2);
+    top: math.div(-$circleSize, 2);
+    border-radius: math.div($circleSize, 2);
+    margin: math.div($circleSize, 20) 0 0 math.div($circleSize, 20);
     background-color: $error;
     opacity: 0;
     transform: scale(0);
@@ -40,7 +41,7 @@ $animationSpeed: 1s;
     }
 
     &:after {
-      animation-delay: $animationSpeed/2;
+      animation-delay: math.div($animationSpeed, 2);
     }
   }
 }

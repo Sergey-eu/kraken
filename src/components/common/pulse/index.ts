@@ -1,1 +1,1 @@
-export * from "./pulse.component";
+export * from './pulse.component';

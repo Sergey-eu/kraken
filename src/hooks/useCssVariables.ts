@@ -1,11 +1,11 @@
-export const useCssVariables = (names: Array<string>) => {
+export const useCssVariables = (names: string[]) => {
   const cssVariables: { [key: string]: string } = {};
-  const cssVarValues: Array<string> = [];
+  const cssVarValues: string[] = [];
 
   names.forEach((name) => {
     const varValue = getComputedStyle(document.documentElement)
       .getPropertyValue(name)
-      .replace(/\s/g, "");
+      .replace(/\s/g, '');
 
     cssVariables[name] = varValue;
 

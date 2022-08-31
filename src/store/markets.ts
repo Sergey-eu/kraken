@@ -1,16 +1,16 @@
-import { autorun, makeAutoObservable, runInAction } from "mobx";
+import { autorun, makeAutoObservable, runInAction } from 'mobx';
 
-import { ThreadDataItem } from "../types";
+import { ThreadDataItem } from '../types';
 
 class TrackingStore {
   socket: WebSocket | undefined;
-  prices: Array<ThreadDataItem> = [];
-  markets: Array<string> = [];
+  prices: ThreadDataItem[] = [];
+  markets: string[] = [];
 
-  constructor() {
+  constructor () {
     makeAutoObservable(this);
 
-    const name = "markets";
+    const name = 'markets';
     const storedJson = localStorage.getItem(name);
 
     if (storedJson) Object.assign(this, JSON.parse(storedJson));
@@ -21,21 +21,21 @@ class TrackingStore {
   }
 
   startSocket = () => {
-    this.socket = new WebSocket("wss://ws.kraken.com/a");
+    this.socket = new WebSocket('wss://ws.kraken.com/a');
     this.socket.onopen = () =>
       this.socket?.send(
         JSON.stringify({
-          event: "subscribe",
+          event: 'subscribe',
           pair: this.markets,
           subscription: {
-            name: "ticker",
-          },
+            name: 'ticker'
+          }
         })
       );
   };
 
   readSocket = () => {
-    if (this.socket) {
+    if (this.socket != null) {
       this.socket.onmessage = (event: { data: string }) => {
         const newMessage = JSON.parse(event.data);
 
@@ -61,7 +61,7 @@ class TrackingStore {
     this.prices = [];
   };
 
-  setMarkets = (selectedMarkets: Array<string>) => {
+  setMarkets = (selectedMarkets: string[]) => {
     this.markets = selectedMarkets;
   };
 }

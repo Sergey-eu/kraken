@@ -1,8 +1,8 @@
-export type ThreadDataItem = {
-  name: string;
-  data: number;
-};
+export interface ThreadDataItem {
+  name: string
+  data: number
+}
 
-export type ChartDataItem = {
-  [key: string]: number;
-};
+export interface ChartDataItem {
+  [key: string]: number
+}
