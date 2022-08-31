@@ -38,10 +38,12 @@ export namespace Chart {
     }, []);
 
     useEffect(() => {
-      const isDataValid = dataHistory.length > 0 && markets.markets.length === Object.keys(data).length - 1;
-      const newData = isDataValid ? [...dataHistory, data] : [data];
-      setDataHistory(newData.filter(value => Object.keys(value).length !== 0).slice(-50));
-      setChartStoredHistory(JSON.stringify(newData));
+      const isDataValid = markets.markets.length === Object.keys(data).length - 1;
+      if (isDataValid) {
+        const newData = dataHistory.length > 0 ? [...dataHistory, data] : [data];
+        setDataHistory(newData.filter(value => Object.keys(value).length !== 0).slice(-50));
+        setChartStoredHistory(JSON.stringify(newData));
+      }
     }, [data]);
 
     const uniqueLines = Object.keys(data);
