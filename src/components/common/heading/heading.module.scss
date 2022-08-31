@@ -1,0 +1,28 @@
+@import "../../../styles/variables";
+
+.heading {
+  display: flex;
+  font-weight: 700;
+  width: 100%;
+  margin: 0.5em 0;
+  align-items: center;
+  gap: 32px;
+
+  &_1 {
+    font-size: 54px;
+    text-shadow: 0 4px 14px $mono-0;
+  }
+
+  &_2 {
+    font-size: 34px;
+    text-shadow: 0 4px 14px $mono-0;
+  }
+
+  &_centered {
+    justify-content: center;
+  }
+
+  &_thin {
+    font-weight: 300;
+  }
+}

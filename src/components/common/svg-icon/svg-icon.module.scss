@@ -1,0 +1,14 @@
+.svgIcon {
+  user-select: none;
+  fill: currentColor;
+
+  &_small {
+    width: 12px;
+    height: 12px;
+  }
+
+  &_medium {
+    width: 14px;
+    height: 14px;
+  }
+}

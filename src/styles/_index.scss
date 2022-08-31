@@ -1,0 +1,39 @@
+@import "./variables";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap");
+
+:root {
+  --mono-0: #222;
+  --mono-1: #fff;
+  --grey-1: #262c41;
+  --grey-2: #455172;
+  --grey-3: #8e96b6;
+  --primary-1: #8a77df;
+  --primary-2: #a490ff;
+  --primary-3: #c6bafc;
+  --secondary-1: #00ff11;
+  --secondary-2: #ff33cc;
+  --secondary-3: #ff8000;
+  --error: #fe2b2b;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  background-color: $grey-1;
+  color: $grey-3;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+#root {
+  animation: onLoad 2s ease forwards;
+  opacity: 0;
+}
+
+@keyframes onLoad {
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,13 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.page {
+  @include customScroll;
+
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  overflow: hidden auto;
+  background: linear-gradient(180deg, $grey-2 0%, $grey-1 100%);
+}

@@ -1,0 +1,40 @@
+@mixin customScroll() {
+  /* FF */
+  scrollbar-color: transparent transparent;
+  scrollbar-width: thin;
+
+  /* Chrome, Safari, Edge */
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-color: transparent;
+    border-style: solid;
+    background-color: transparent;
+    background-clip: padding-box;
+    border-radius: 7px;
+    border-width: 1px;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      scrollbar-color: rgba(171, 171, 171, 0.5) transparent;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: rgba(171, 171, 171, 0.5);
+    }
+  }
+}
