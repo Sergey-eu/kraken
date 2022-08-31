@@ -38,7 +38,8 @@ export namespace Chart {
     }, []);
 
     useEffect(() => {
-      const newData = (dataHistory.length > 0) ? [...dataHistory, data] : [data];
+      const isDataValid = dataHistory.length > 0 && markets.markets.length === Object.keys(data).length - 1;
+      const newData = isDataValid ? [...dataHistory, data] : [data];
       setDataHistory(newData.filter(value => Object.keys(value).length !== 0).slice(-50));
       setChartStoredHistory(JSON.stringify(newData));
     }, [data]);
