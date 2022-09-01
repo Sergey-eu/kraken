@@ -7,6 +7,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/recharts": "^1.8.23",
     "mobx": "^6.6.1",
     "mobx-react-lite": "^3.4.0",
     "moment": "^2.29.4",
@@ -23,7 +24,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "craco test --collectCoverage --silent",
     "css-types": "typed-scss-modules src --watch --nameFormat none --exportType default",
     "code:lint": "eslint src --ext .js,.jsx,.ts,.tsx",
     "code:lint-fix": "npm run code:lint -- --fix"
@@ -65,5 +66,13 @@
     "jest-environment-jsdom": "^29.0.1",
     "prettier": "^2.7.1",
     "typescript": "*"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/(?!d3|internmap|delaunator|robust-predicates)"
+    ],
+    "moduleNameMapper": {
+      "d3-shape": "<rootDir>/node_modules/d3-shape/dist/d3-shape.js"
+    }
   }
 }
