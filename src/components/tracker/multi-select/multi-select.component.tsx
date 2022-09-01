@@ -36,12 +36,12 @@ export namespace MultiSelect {
       };
 
       return (
-        <div onClick={e => e.stopPropagation()} className={styles.multiSelect__tag}>
+        <button onClick={e => e.stopPropagation()} className={styles.multiSelect__tag}>
           {market}
           <span className={styles.multiSelect__tagRemove} onClick={removeOptionHandler}>
             <CloseIcon size={SvgIcon.Size.Small} />
           </span>
-        </div>
+        </button>
       );
     };
 

@@ -62,6 +62,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.1",
+    "jest-environment-jsdom": "^29.0.1",
     "prettier": "^2.7.1",
     "typescript": "*"
   }
