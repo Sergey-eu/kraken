@@ -1,9 +1,24 @@
 import React, { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-
 import '@testing-library/jest-dom';
-import { HomePage } from './home.page';
+import userEvent from '@testing-library/user-event';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HomePage } from './home.page';
+
+beforeEach(() => {
+  // eslint-disable-next-line
+  // @ts-ignore: Unreachable code error
+  delete window.ResizeObserver;
+  window.ResizeObserver = jest.fn().mockImplementation(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+  }));
+});
+
+afterEach(() => {
+  window.ResizeObserver = ResizeObserver;
+  jest.restoreAllMocks();
+});
 
 const RoutedPageComponent = (
   <BrowserRouter>
@@ -14,7 +29,7 @@ const RoutedPageComponent = (
   </BrowserRouter>
 );
 
-test('homepage loaded', () => {
+test('home page loaded', () => {
   render(RoutedPageComponent);
   expect(screen.getByRole('heading')).toHaveTextContent('Live Crypto Tracker');
   expect(screen.getByText('Select currency pairs...')).toBeInTheDocument();
